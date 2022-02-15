@@ -1,0 +1,114 @@
+<%- include('commonHeader.ejs', {title: title}); %>
+
+<%# display errors on page %>
+<% if(locals.errors) { %>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+        <% errors.forEach(function(error) { %>
+          <li><%= error %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+<form method="POST" action="/heroes/update/<%- sh._id %>">
+    <fieldset class="mb-5">
+        <legend>Basic</legend>
+        <input type="hidden" name="id" value="<%- sh._id %>">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name <em>(Required)</em></label>
+        <input type="text" class="form-control" name="name" id="name" value="<%- sh.name %>" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="gender"> Select Gender</label>
+        <select name="gender" id="gender" class="form-select">
+            <option value="None">None</option>
+            <option value="Male" > Male </option>
+            <option value="Female" > Female </option>
+        </select>
+    </div>
+
+    <div class="mb-3"> 
+        <label for="race" class="form-label">Race </label>
+        <input type="text" class="form-control" name="race" id="race" value="<%- sh.race %>" >
+    </div>
+
+    <div class="mb-3"> 
+        <label for="height" class="form-label">Height </label>
+        <input type="text" class="form-control" name="height" id="height" value="<%- sh.height %>" >
+    </div>
+
+    <div class="mb-3"> 
+        <label for="weight" class="form-label">Weight</label>
+        <input type="text" class="form-control" name="weight" id="weight" value="<%- sh.weight %>" >
+    </div>
+    </fieldset>
+
+    <fieldset class="mb-5">
+        <legend>Publisher</legend>
+        <% for(let p of pl) { %>
+            <div class="form-check">
+              <input type="radio" class="form-check-input" name="publisherID" value="<%- p._id %>"
+              id="publisher_<%- p._id %>" <%- sh.publisherID && sh.publisherID.equals(p._id) ? "checked" : "" %>>
+              <label for="publisher_<%- p._id %>" class="form-check-label"><%= p.publisher %></label>
+            </div>
+        <% } %>
+            <div class="form-check">
+            <input type="radio" class="form-check-input" name="publisherID" value=""
+            id="publisher_none" <%- !sh.publisherID ? "checked" : "" %>>
+            <label for="publisher_none" class="form-check-label">None</label>
+          </div>
+    </fieldset>
+
+    <fieldset class="mb-5">
+        <legend>Power Status </legend>
+        <div class="mb-3">
+            <label for="intelligence" class="form-label">Intelligence </label>
+            <input type="number" class="form-control" name="intelligence" id="intelligence"
+            value="<%- sh.intelligence %>" required min="0">
+        </div>
+    
+        <div class="mb-3">
+            <label for="strength" class="form-label">Strength </label>
+            <input type="number" class="form-control" name="strength" id="strength"
+            value="<%- sh.strength %>" required min="0">
+        </div>
+    
+        <div class="mb-3">
+            <label for="speed" class="form-label">Speed </label>
+            <input type="number" class="form-control" name="speed" id="speed"
+            value="<%- sh.speed %>" required min="0">
+        </div>
+    
+        <div class="mb-3">
+            <label for="durability" class="form-label">Durability </label>
+            <input type="number" class="form-control" name="durability" id="durability"
+            value="<%- sh.durability %>" required min="0">
+        </div>
+    
+        <div class="mb-3">
+            <label for="power" class="form-label">Power </label>
+            <input type="number" class="form-control" name="power" id="power"
+            value="<%- sh.power %>" required min="0">
+        </div>
+
+        <div class="mb-3">
+            <label for="combat" class="form-label">Combat </label>
+            <input type="number" class="form-control" name="combat" id="combat"
+            value="<%- sh.combat %>" required min="0">
+        </div>
+    </fieldset>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image link </label>
+            <input type="url" class="form-control" name="image" id="image"
+            value="<%- sh.image %>">
+        </div>
+
+    <hr>
+    <button class="btn btn-primary my-3" type="submit"> Submit</button>
+
+</form>
+
+<%- include('commonFooter.ejs'); %>

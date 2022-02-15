@@ -1,0 +1,65 @@
+<%- include('commonHeader.ejs', {title: name}); %>
+
+    <div class="row featurette">
+        <div class="col-md-6 align-self-center">
+            <h1 class="featurette-heading"> <%= name %></h1>
+            <ul>
+                <li>Gender: <%- gender %></li>
+                <li>Race: <%- race %></li>
+                <li>Height: <%- height %></li>
+                <li>Weight: <%- weight %></li>
+                <li>Publisher: <a href="<%- publisherID !== undefined ? publisherID.url : '/heroes' %>"><%- publisherID !== undefined ? publisherID.publisher : "delete by u" %></a></li>
+            </ul>
+            <p>Power Stats:</p>
+            <div style="max-width: 300px ;">
+                <canvas id="myChart"></canvas>
+                <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['IQ', 'Strength', 'Speed', 'Durability', 'Power', 'Combat'],
+                        datasets: [{
+                            label: "Ability of <%- name %>",
+                            data: [<%- intelligence %>, <%- strength %>, <%- speed %>, <%- durability %>, <%- power %>, <%- combat %>],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                });
+                </script>
+            </div>
+        </div>
+        <div class=" col-md-6 text-center">
+            <img src="<%- image %>" class="border border-3 border-danger rounded-circle" >
+        </div>
+    </div>
+
+
+    <hr>
+    <div class="row">
+        <div class="col-auto me-auto"><a href="/heroes/delete/<%- _id %>"> Unlike</a></div>
+        <div class="col-auto"><a href="/heroes/update/<%- _id %>"> Update </a></div>
+    </div>
+
+
+
+
+<%- include('commonFooter.ejs'); %>
+
+

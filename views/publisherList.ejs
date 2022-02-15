@@ -1,0 +1,18 @@
+<%- include('commonHeader.ejs', {title: "Publisher List"}); %>
+
+    <h1>Publisher List</h1>
+    
+    <ul>
+      <% for (let item of pList) { %>
+        <li><a href="<%- item.url %>"><%- item.publisher %></a><br>
+          <i>Founder: <%- item.founder %></i><br>
+          <i>Formed in: <%- item.date %></i>
+        </li>
+      <% } %>
+      </ul>
+
+      <hr>
+      <a href="/publishers/create/"> create a publisher </a>
+
+
+<%- include('commonFooter.ejs'); %>

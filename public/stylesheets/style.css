@@ -1,0 +1,18 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #d31c1c;
+}
+
+
+img {
+  max-height: 350px;
+  
+}
+
+li {
+  line-height: 2;
+  
+}

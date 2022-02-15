@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Heroes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <hr>
+        <div class="text-center p-md-2" style="background-color: rgb(34, 34, 34)">
+            <h1 style="color: white"> Super Heroes Collection</h1>
+            <p style="color: white">View <a href="/heroes/">all the heroes</a></p>
+            <p style="color: white">View <a href="/publishers/">all the publishers</a></p>
+            <p style="color: white">Search hero in the list: <a href="/heroes/searchList/man">man</a></p>
+            <img src="https://ibb.co/Dbq7J7v" alt="">;
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-auto me-auto"><a href="/heroes/create/"> Create Hero</a></div>
+            <div class="col-auto"><a href="/publishers/create/"> Create Publisher </a></div>
+        </div>
+
+        <hr>
+        <fieldset class="d-flex mt-3 mb-3 text-center">
+            <input class="form-control me-2" type="search" id="heroInput" placeholder="search in API: man"
+                aria-label="Search">
+            <button class="btn btn-outline-danger" id="searchBtn" type="submit">Search</button>
+        </fieldset>
+
+
+        <div id="cards" class="section row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        </div>
+
+        <script src="./javascripts/searchHero.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+<%- include('commonHeader.ejs', {title: "Hero List"}); %>
+    <h1>a Hero List</h1>
+    <ul>
+      
+      <% for(let item of heroList) { %>
+        <li><a href="<%- item.url %>"> <%- item.name %></a></li>
+      <%} %>
+    </ul>
+    <hr>
+    <a href="/heroes/create/"> DIY a new hero </a>
+
+
+<%- include('commonFooter.ejs'); %>

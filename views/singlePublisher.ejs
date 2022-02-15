@@ -1,0 +1,18 @@
+<%- include('commonHeader.ejs', {title: publisher.publisher}); %>
+
+    <h1>Publisher: <%= publisher.publisher %></h1>
+    <ul>
+        <% for(let item of members) { %>
+          <li><a href="<%- item.url %>"> <%- item.name %></a></li>
+        <%} %>
+      </ul>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-auto me-auto"><a href="/publishers/id/delete/<%- publisher._id %>"> Unlike</a></div>
+        <div class="col-auto"><a href="/publishers/update/<%- publisher._id %>"> Update </a></div>
+    </div>
+
+
+<%- include('commonFooter.ejs'); %>

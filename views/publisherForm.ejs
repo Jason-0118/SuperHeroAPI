@@ -1,0 +1,48 @@
+<%- include('commonHeader.ejs', {title: title}); %>
+
+<%# display errors on page %>
+<% if(locals.errors) { %>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+        <% errors.forEach(function(error) { %>
+          <li><%= error %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+<form method="POST" action="/publishers/update/<%- pl._id %>">
+    <fieldset class="mb-5">
+        <legend>Publisher</legend>
+        <input type="hidden" name="id" value="<%- pl._id %>">
+        <div class="mb-3">
+            <label for="publisher" class="form-label">Name <em>(Required)</em></label>
+            <input type="text" class="form-control" name="publisher" id="publisher" value="<%- pl.publisher %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="founder" class="form-label">Founder <em>(Required)</em></label>
+            <input type="text" class="form-control" name="founder" id="founder" value="<%- pl.founder %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="Headquarters" class="form-label">Headquarters <em>(Required)</em></label>
+            <input type="text" class="form-control" name="Headquarters" id="Headquarters" value="<%- pl.Headquarters %>" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="formed" class="form-label">Date Formed<em>(Required)</em></label>
+            <input type="date" class="form-control" name="formed" id="formed" value="<%- pl.formed %>" required
+            max="<%- new Date().toLocaleDateString() %>">
+        </div>
+
+        <div class="mb-3 form-check">
+            <input class="form-check-input" type="checkbox" name="active" id="active" value="true"
+             <%- pl.active ? "checked" : "" %>>
+            <label for="active" class="form-check-label">Active</label>
+          </div>
+    </fieldset>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+
+<%- include('commonFooter.ejs'); %>

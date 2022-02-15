@@ -1,0 +1,39 @@
+<%- include('commonHeader.ejs',{title: name}); %>
+
+<div class="row featurette">
+    <div class="col-md-6 align-self-center">
+        <h1>Name: <%- name %></h1>
+        <p>Power Stats:</p>
+        <ul>
+            <li>Intelligence: <%- powerstats.intelligence %></li>
+            <li>Strength: <%- powerstats.strength %></li>
+            <li>Speed: <%- powerstats.speed %></li>
+            <li>Durability: <%- powerstats.durability %></li>
+            <li>Power: <%- powerstats.power %></li>
+            <li>Combat: <%- powerstats.combat %></li>
+        </ul>
+        <p>Appearance:</p>
+        <ul>
+            <li>Gender: <%- appearance.gender %></li>
+            <li>Race: <%- appearance.race %></li>
+            <li>Height: <%- appearance.height %></li>
+            <li>Weight: <%- appearance.weight %></li>
+
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <img src="<%- image.url %>" class="border border-3 border-danger rounded-circle" >
+    </div>
+
+    <hr>
+    <a href="/heroes"> like (Not working yet, redirect to heroes list)</a>
+</div>
+
+    
+
+
+
+
+<%- include('commonFooter.ejs'); %>
+
+
